@@ -1,17 +1,18 @@
 {% extends 'base.html' %} {%block contents%}
-<h1 class="mt-5">Minha agenda</h1>
+<h1 class="mt-5">My Phone Book</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Sobrenome</th>
-      <th>Telefone</th>
-      <th>Categoria</th>
+      <th>Name</th>
+      <th>Last Name</th>
+      <th>Phone</th>
+      <th>Category</th>
     </tr>
   </thead>
   <tbody>
     {% for contact in contacts %}
+    {% if contact.show %}
     <tr>
       <td>
         <a href="{% url 'show_contact' contact.id %}"> {{ contact.name }}</a>
@@ -20,6 +21,7 @@
       <td>{{ contact.phone }}</td>
       <td>{{ contact.category }}</td>
     </tr>
+    {% endif %}
     {% endfor %}
   </tbody>
 </table>
