@@ -7,7 +7,7 @@ from .models import Contact
 
 # Create your views here.
 def index(request):
-    _contacts = Contact.objects.order_by('name').filter(
+    _contacts = Contact.objects.order_by('id').filter(
         show=True
     )  # order_by('-name') desc order
     paginator = Paginator(_contacts, 10) # Show 10 contacts per page.
