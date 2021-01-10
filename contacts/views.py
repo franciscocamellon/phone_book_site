@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Contact
 
 # Create your views here.
@@ -9,7 +9,7 @@ def index(request):
     })
 
 def show_contact(request, contact_id):
-    _contact = Contact.objects.get(id=contact_id)
+    _contact = get_object_or_404(Contact, id=contact_id)
     return render(request, 'contacts/show_contact.html', {
         'contact': _contact
     })
