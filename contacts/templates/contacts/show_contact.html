@@ -1,4 +1,9 @@
-{% extends 'base.html' %} {%block contents%}
+{% extends 'base.html' %}
+{% block title %}{{contact.name}} {{contact.last_name}} | {% endblock %}
+{%block contents%}
+
+
+
 <h1 class="mt-5">{{contact.name}} {{contact.last_name}}</h1>
 {% if contact.avatar %}
   <p>
