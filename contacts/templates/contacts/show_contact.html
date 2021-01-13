@@ -1,5 +1,15 @@
-{% extends 'base.html' %} {%block contents%}
+{% extends 'base.html' %}
+{% block title %}{{contact.name}} {{contact.last_name}} | {% endblock %}
+{%block contents%}
+
+
+
 <h1 class="mt-5">{{contact.name}} {{contact.last_name}}</h1>
+{% if contact.avatar %}
+  <p>
+    <img src="{{ contact.avatar.url }}" style="max-width: 250px; height: auto" />
+  </p>
+{% endif %}
 <dl>
   <dt>ID</dt>
   <dd>{{contact.id}}</dd>
@@ -17,8 +27,6 @@
   <dd>{{contact.category}}</dd>
 
   <dt>Descrição</dt>
-  <dd>
-    {{contact.description}}
-  </dd>
+  <dd>{{contact.description}}</dd>
 </dl>
 {%endblock%}
